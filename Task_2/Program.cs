@@ -14,20 +14,17 @@ int ReadInt (string message)
 }
 
 int Number = ReadInt("Введите число: ");
-int tempNum = Number;
+int tempNum = Number; //временное число для итераций
 int Sum = 0; //сумма требуемых цифр в числе
-int Ostatok = 0; // остаток введенного Числа (number) от деления на 10
+//int Ostatok: остаток введенного Числа (number) от деления на 10
 
-while (tempNum != 0) {
-Ostatok = tempNum % 10;
-if(Ostatok == 0)
-   Console.WriteLine("Как еще бороться с делением на ноль в 24-й строке???");          
-else if(tempNum % Ostatok == 0) 
-   {
-   Sum = Sum + Ostatok;         
-   }
-tempNum = tempNum / 10;
+while (tempNum != 0) 
+{
+   int Ostatok = tempNum % 10;
+   tempNum = tempNum / 10;
 
+      if(Ostatok > 0 && Number % Ostatok == 0)
+         Sum = Sum + Ostatok;          
 }         
 Console.WriteLine("Сумма цифр делителей числа: " + Sum);
-Console.WriteLine(2 % 2);
+
